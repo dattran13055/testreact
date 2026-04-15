@@ -15,6 +15,7 @@ class App extends React.Component{
           return(
               <div>  
                   my name is { this.state.name}  and i am from { this.state.address}
+                  <Mycomponent />
                   </div>
           );
          }
