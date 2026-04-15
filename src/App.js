@@ -4,27 +4,42 @@ import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { increaseCounter, decreaseCounter } from './redux/action/counterAction';
 import Mycomponent from './components/Mycomponent';
-const App = () => {
-  const count = useSelector(state => state.counter.count);
-  const dispatch = useDispatch();
+import React from 'react';
 
-  return (
-    <div>  
-      heloo world voi eric &amp; hoi dan it 
-      <Mycomponent></Mycomponent>
-    </div>
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //    hello word voi dat
-    //     </p>
-    //     <div>Count = {count}</div>
-    //     <button onClick={() => dispatch(increaseCounter())}>Increase</button>
-    //     <button onClick={() => dispatch(decreaseCounter())}>Decrease</button>
-    //   </header>
-    // </div>
-  );
+class App extends React.Component{
+        state={
+          name: 'eric',
+          address:'ha noi',
+          age:16        };
+         render(){
+          return(
+              <div>  
+                  my name is { this.state.name}  and i am from { this.state.address}
+                  </div>
+          );
+         }
+
 }
 
 export default App;
+
+
+// const App = () => {
+//   const count = useSelector(state => state.counter.count);
+//   const dispatch = useDispatch();
+
+//   return (
+   
+//     <div className="App">
+//       <header className="App-header">
+//         <img src={logo} className="App-logo" alt="logo" />
+//         <p>
+//        hello word voi dat
+//         </p>
+//         <div>Count = {count}</div>
+//         <button onClick={() => dispatch(increaseCounter())}>Increase</button>
+//         <button onClick={() => dispatch(decreaseCounter())}>Decrease</button>
+//       </header>
+//     </div>
+//   );
+// }
