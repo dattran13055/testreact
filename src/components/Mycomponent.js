@@ -15,22 +15,40 @@ state={
     }
     handleAddNewUser= (userobj)=>{
         this.setState({
-            listUser:[...this.state.listUser,userobj]
+            listUser:[userobj,...this.state.listUser]
+        })
+    }
+    handleDeleteUser=(userId)=>{        
+        let listUserClone=[...this.state.listUser]
+        listUserClone=listUserClone.filter(item=>item.id !== userId)
+        this.setState({
+            listUser:listUserClone
         })
     }
     //jsx
    
          render(){
+               
          return(
-              <div>  
+              <>
+                
+              <div className="a">
                   
-                        <AddUserInfor handleAddNewUser={this.handleAddNewUser} />
+                        <AddUserInfor 
+                        handleAddNewUser={this.handleAddNewUser} 
+                        />
                         <br/><br/>
-                        <Displayinfor listUser={this.state.listUser}
+                        <Displayinfor 
+                        listUser={this.state.listUser}
+                        handleDeleteUser={this.handleDeleteUser}
                                                           
-                        >
-                        </Displayinfor>
-                  </div>
+                        />
+                        </div> 
+                      
+                  <div className="b">
+                        </div>
+                         
+                  </>
           );
          }
 }
