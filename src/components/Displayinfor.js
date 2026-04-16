@@ -1,4 +1,5 @@
 import React from "react";
+import './Displayinfor.scss'
 class Displayinfor extends React.Component{
    state={
        isShowlistUser:true
@@ -16,7 +17,7 @@ class Displayinfor extends React.Component{
        //dry 
        console.table(listUser)
         return(
-            <div>
+            <div className="display-infor-container">
                 <div>
                     <span onClick={()=>{this.handleShowhide()}}>
                         {this.state.isShowlistUser=== true? "hide list user:":"show list user" }
@@ -27,7 +28,7 @@ class Displayinfor extends React.Component{
                 {listUser.map((user)=>{
                      return(
                         <div key={user.id} className={+user.age>18?"green":"red"} >
-                              <div>my name is {user.name}</div>
+                              <div >my name is {user.name}</div>
                              <div>my age {user.age} </div>
                         </div>
                     )
