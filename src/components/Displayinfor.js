@@ -5,13 +5,38 @@ class Displayinfor extends React.Component{
    state={
        isShowlistUser:true
    }
+     constructor(props){
+        console.log("call me constructor")  
+        super(props);
+        this.state={
+            isShowlistUser:true
+        }
+     }
+     componentDidMount(){
+        console.log("call me component did mount")
+        setTimeout(() => {
+            document.title="hello dat"
+        }, 3000);
+     }
+     componentDidUpdate(prevProps,prevState,snapshot){
+        console.log("call me component did update",this.props,prevProps)
+        if(this.props.listUser !== prevProps.listUser){
+                if(this.props.listUser.length === 5){
+                    alert("you have 5 user in your list")
+                }
+            }
+        }
+
 
     handleShowhide=()=>{
-            this.setState({isShowlistUser:!this.state.isShowlistUser})
+            this.setState((prevState)=>({
+                isShowlistUser:!prevState.isShowlistUser
+            }))
 
     }
     
     render(){
+        console.log("call me render")
         const {listUser}=this.props;
         
        // console.log(this.props)

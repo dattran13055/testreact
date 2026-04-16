@@ -14,9 +14,9 @@ state={
                 ]
     }
     handleAddNewUser= (userobj)=>{
-        this.setState({
-            listUser:[userobj,...this.state.listUser]
-        })
+        this.setState((prevState)=>({
+            listUser:[userobj,...prevState.listUser]
+        }))
     }
     handleDeleteUser=(userId)=>{        
         let listUserClone=[...this.state.listUser]
